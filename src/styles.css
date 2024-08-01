@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@font-face {
+    font-family: 'ocr';
+    src: url('./fonts/OCRAEXT.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+:root {
+    --primary:#FCD612;
+}
+
+
+body {
+    background-color: black;
+}
+
+body,html,#root {
+    padding:0;
+    margin:0;
+    overflow:hidden;
+}
+
+.buttons {
+    display:flex;
+    column-gap:32px;
+}
