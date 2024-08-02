@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @font-face {
     font-family: 'ocr';
     src: url('./fonts/OCRAEXT.TTF') format('truetype');
@@ -9,6 +8,7 @@
 
 :root {
     --primary:#FCD612;
+    --gray:#B3B3B3;
 }
 
 
@@ -19,10 +19,44 @@ body {
 body,html,#root {
     padding:0;
     margin:0;
-    overflow:hidden;
 }
 
 .buttons {
     display:flex;
     column-gap:32px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }   
+    25% {
+        transform:rotate(90deg)
+    }
+    50% {
+        transform:rotate(180deg)
+    }
+    75% {
+        transform:rotate(270deg)
+    }
+    100% {
+        transform:rotate(360deg)
+    }
+}
+
+
+.construction-site {
+    display: flex;
+    flex-direction: column;
+    color:var(--primary);
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: .12rem;
+    align-items: center;
+    justify-content: center;
+    max-width:100vw;
+    height:100vh;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    overflow: hidden;
 }
