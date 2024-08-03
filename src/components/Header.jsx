@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 const StyledHeader = styled.header`
 
@@ -45,7 +45,7 @@ export function Header() {
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
     console.log(viewportWidth)
 
-    useState(() => {
+    useEffect(() => {
         const handleResize = () => {
 
             setViewportWidth(window.innerWidth)

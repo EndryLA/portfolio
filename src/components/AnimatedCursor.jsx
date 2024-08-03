@@ -1,5 +1,3 @@
-// src/AnimatedCursor.js
-
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
@@ -22,7 +20,6 @@ const Cursor = styled.div`
     position: fixed;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    animation: ${props => props.isActive ? move : ''} 0.2s ease-in-out;
 
     :hover {
         background-color:blue;
@@ -32,6 +29,7 @@ const Cursor = styled.div`
 const AnimatedCursor = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [isActive, setIsActive] = useState(false);
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
 
     useEffect(() => {
         const moveCursor = (e) => {
@@ -52,12 +50,26 @@ const AnimatedCursor = () => {
         };
     }, []);
 
+
+    useEffect(() => {
+        const handleResize = () => {
+
+            setViewportWidth(window.innerWidth)
+        }
+        window.addEventListener('resize',handleResize)
+
+    },[])
+
     return (
-        <Cursor
+        <>
+        {viewportWidth> 768 &&
+            <Cursor
             id='custom-cursor'
             isActive={isActive}
             style={{ left: `${position.x}px`, top: `${position.y}px` }}
-        />
+            />
+        }
+        </>
     );
 };
 
