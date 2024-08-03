@@ -2,8 +2,9 @@ import { ButtonMedium } from "../components/buttons/ButtonMedium";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
-    height:100vh;
-    max-width:100vw;
+    min-height:100vh;
+    box-sizing:border-box;
+    margin:0;
     color:white;
     color:var(--primary);
     display:flex;
@@ -11,15 +12,26 @@ const StyledSection = styled.section`
     align-items:center;
     justify-content:center;
     gap:32px;
+
+    @media (max-width:768px) {
+        width:100vw;
+    }
 `
 
-const StyledTtile = styled.h1`
+const StyledTitle = styled.h1`
+    position:relative;
     font-size:80px;
     text-transform:uppercase;
     margin:0;
     line-height:60px;
     letter-spacing:.15rem;
     font-family:'Bebas Neue',sans-serif;
+    animation:fadein 2.25s ease-in 1;
+
+    @media (max-width:768px) {
+        font-size:60px;
+    }
+
 `
 
 const StyledParagraph = styled.p`
@@ -27,6 +39,14 @@ const StyledParagraph = styled.p`
     font-size:20px;
     margin:0;
     color:white;
+    animation:fadein2 3s ease-in 1;
+
+
+    @media (max-width:768px) {
+        font-size:14px;
+    }
+
+    
 
 `
 
@@ -34,7 +54,7 @@ export function HeroSection() {
     return (
         <>
         <StyledSection>
-            <StyledTtile>Endry LUNDY</StyledTtile>
+            <StyledTitle>Endry LUNDY</StyledTitle>
             <StyledParagraph>
             Développeur Web + UX/UI Designer
             </StyledParagraph>

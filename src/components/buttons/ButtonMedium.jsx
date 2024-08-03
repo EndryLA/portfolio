@@ -11,9 +11,15 @@ const StyledButton = styled.button`
     font-family:'ocr';
     cursor:pointer;
     transition: box-shadow 0.3s ease;
+
     
     &:hover {
         box-shadow:0px 2px 50px rgba(252, 214, 18, .3);
+    }
+
+    @media (max-width:768px) {
+        width:120px;
+        font-size:12px
     }
     `;
 

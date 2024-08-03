@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Link} from 'react-router-dom'
+import {useState} from 'react'
 
 const StyledHeader = styled.header`
 
@@ -13,6 +13,8 @@ const StyledHeader = styled.header`
     max-width:100vw;
     padding:10px 20px;
     box-sizing:border-box;
+    animation:fadein2 4s ease-in 1;
+
 
     > nav ul {
         list-style:none;
@@ -32,11 +34,30 @@ const StyledHeader = styled.header`
     > nav ul li:hover {
         color:var(--primary);
     }
+
+    @media screen and (max-width:768px) {
+        display:none;
+    }
 `
 
 export function Header() {
+
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
+    console.log(viewportWidth)
+
+    useState(() => {
+        const handleResize = () => {
+
+            setViewportWidth(window.innerWidth)
+        }
+        window.addEventListener('resize',handleResize)
+
+    },[])
+
     return(
     <>
+    {viewportWidth > 768 && (
+
         <StyledHeader>
             <nav>
                 <ul>
@@ -47,6 +68,14 @@ export function Header() {
                 </ul>
             </nav>
         </StyledHeader>    
+        
+    )}
+
+    {viewportWidth < 768 && (
+        <StyledHeader>
+
+        </StyledHeader>
+    )}
     </>
     )
 }

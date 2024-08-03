@@ -3,11 +3,14 @@ import styled from "styled-components";
 const StyledComponent = styled.div`
     display:flex;
     flex-direction:column;
-    gap:4px;
-    max-width:400px;
+    gap:0px;
+    max-width:480px;
     position:relative;
     margin:auto;
     padding:4px 4px 16px 4px;
+    cursor:pointer;
+    transition:.3s;
+    border-radius:4px;
 
     .period {
         font-size:12px;
@@ -27,7 +30,7 @@ const StyledComponent = styled.div`
     .description {
         color:var(--gray);
         font-family:'DM Sans', sans-serif;
-        margin:0;
+        margin:4px 0;
     }
 
     ::after {
@@ -50,6 +53,12 @@ const StyledComponent = styled.div`
         border-radius:50%;
         background:var(--primary)
     }
+
+    &:hover {
+        background-color:var(--dark-gray);
+    }
+
+    @media (max-width)
 
     
 `
