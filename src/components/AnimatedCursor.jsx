@@ -20,6 +20,9 @@ const Cursor = styled.div`
     position: fixed;
     pointer-events: none;
     transform: translate(-50%, -50%);
+    
+
+    
 
     :hover {
         background-color:blue;

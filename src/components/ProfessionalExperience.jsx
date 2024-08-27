@@ -8,7 +8,6 @@ const StyledComponent = styled.div`
     position:relative;
     margin:auto;
     padding:4px 4px 16px 4px;
-    cursor:pointer;
     transition:.3s;
     border-radius:4px;
 
@@ -54,11 +53,8 @@ const StyledComponent = styled.div`
         background:var(--primary)
     }
 
-    &:hover {
-        background-color:var(--dark-gray);
-    }
 
-    @media (max-width)
+
 
     
 `

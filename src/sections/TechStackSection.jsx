@@ -33,18 +33,17 @@ const frontEndArray = [
     {icon:html,name:'html'},
     {icon:css,name:'css'},
     {icon:javascript,name:'javascript'},
-    {icon:react,name:'react'},
-    {icon:angular,name:'angular'},
+    {icon:react,name:'react 18'},
+    {icon:angular,name:'angular 18'},
     {icon:bootstrap,name:'bootstrap'}
 ]
 
 const backEndArray = [
-    {icon:php,name:'php'},
     {icon:nodejs,name:'nodejs'},
+    {icon:express,name:'express'},
+    {icon:php,name:'php'},
     {icon:mysql,name:'mysql'},
     {icon:mongodb,name:'mongodb'},
-    {icon:symfony,name:'symfony'},
-    {icon:express,name:'express'},
 ]
 
 const UxArray = [

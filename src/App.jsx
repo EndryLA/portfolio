@@ -26,7 +26,6 @@ function App() {
     <AboutMe/>
     <ProfessionalExperiences/>
     <Socials/>
-    <AnimatedCursor/>
     <TechStackSection/>
     <ProjectsSection/>
     <Footer/>

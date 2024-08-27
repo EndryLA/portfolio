@@ -5,7 +5,7 @@ const Paragraph = styled.p`
     padding: 4px 16px;
     margin:0;
     border-radius:12px;
-    color:white;
+    color:white !important;
     font-family:'DM Sans',sans-serif;
     font-size:12px;
     width:fit-content;

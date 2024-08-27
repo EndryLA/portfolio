@@ -5,6 +5,8 @@ import Project from "../components/Project"
 import ArcadiaZoo from '@assets/projects/arcadia-zoo.png'
 import ZxwlPhotography from '@assets/projects/zxwl-photography.png'
 import WeatherApp from '@assets/projects/weather-app.png'
+import CendrillonWesh from '@assets/projects/cendrillon-wesh.webp'
+import GaragePoirot from '@assets/projects/garage-poirot.webp'
 
 
 const Section = styled.section`
@@ -34,6 +36,8 @@ const Container = styled.div`
 const arcadiaStack = ['react','mongodb','express','nodejs']
 const zxwlStack = ['html','css','javascript']
 const weatherAppStack = ['html','css','javascript','Fetch API']
+const cendrillonWeshStack = ['angular 18']
+const garagePoirotStack = ['angular 18','mysql','nodejs','express']
 
 console.log(arcadiaStack)
 
@@ -47,6 +51,22 @@ export default function ProjectsSection() {
                 stackArray={arcadiaStack}
                 src={ArcadiaZoo}
                 title = 'Zoo Arcadia'
+                description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
+                />
+
+                <Project 
+                href=''
+                stackArray={garagePoirotStack}
+                src={GaragePoirot}
+                title="Garage V. Poirot"
+                description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
+                />
+
+                <Project 
+                href=''
+                stackArray={cendrillonWeshStack}
+                src={CendrillonWesh}
+                title = {'Cendrillon Wesh!'}
                 description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
                 />
 
@@ -65,6 +85,9 @@ export default function ProjectsSection() {
                 title = 'Weather App'
                 description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
                 />
+
+                
+
             </Container>
         </Section>
     )
