@@ -49,9 +49,8 @@ export default function Footer() {
     return(
         <StyledFooter>
             <StyledComponent>
-                <a href='https://github.com/endryLA' target='_blank'> <img src={GithubIcon}/> </a>
-                <a href=''> <img src={TwitterIcon}/> </a>
-                <a href='https://www.linkedin.com/in/endry-lundy-167440193/' target='_blank'> <img src={LinkedInIcon}/> </a>
+                <a href='https://github.com/endryLA' target='_blank'> <img src={GithubIcon} alt="Lien Github d'Endry"/> </a>
+                <a href='https://www.linkedin.com/in/endry-lundy-167440193/' target='_blank'> <img src={LinkedInIcon} alt="Lien LinkedIn d'Endry"/> </a>
             </StyledComponent> 
             <p>© Endry Lundy Tous droits réservés.</p>
         </StyledFooter>

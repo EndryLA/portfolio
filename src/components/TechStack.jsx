@@ -9,11 +9,11 @@ import bootstrap from '@assets/stack-logos/bootstrap.svg'
 const StyledIconDiv = styled.div`
     color:white;
     font-family:'ocr',sans-serif;
-    font-size:12px;
+    font-size:16px;
     display:flex;
     flex-direction:column;
     align-items:center;
-    width:76px;
+    width:100px;
 
     >img {
         background-color:var(--dark-gray);
@@ -32,7 +32,7 @@ const StyledTechStack = styled.div`
     font-family:'DM Sans',sans-serif;
     font-size:26px;
     letter-spacing:-6%;
-    max-width:300px;
+    max-width:360px;
     margin:0 auto;
     display:flex;
     flex-direction:column;

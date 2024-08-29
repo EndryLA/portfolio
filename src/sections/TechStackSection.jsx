@@ -62,7 +62,7 @@ const toolsArray = [
 
 const StyledSection = styled.section`
 
-    width:100vw;
+    width:100%;
     margin:0 auto;
     box-sizing:border-box;
     display:flex;
@@ -84,7 +84,7 @@ const StyledSection = styled.section`
         display:flex;
         align-items:flex-start;
         flex-wrap:wrap;
-        max-width:700px;
+        max-width:1000px;
         margin:auto;
         gap:60px 40px;
     }
@@ -94,7 +94,7 @@ const StyledSection = styled.section`
 
 export function TechStackSection() {
     return(
-        <StyledSection>
+        <StyledSection id='skills'>
         <h2>Compétences techniques</h2> 
         <div>
         <TechStack title={'Front-End'} array={frontEndArray}/>

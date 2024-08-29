@@ -24,7 +24,6 @@ function App() {
     <Header/>
     <HeroSection/>
     <AboutMe/>
-    <ProfessionalExperiences/>
     <Socials/>
     <TechStackSection/>
     <ProjectsSection/>

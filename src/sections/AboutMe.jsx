@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import avatar from '@assets/icons/avatar.svg'
 
 const StyledSection = styled.section`
 
@@ -9,7 +10,7 @@ const StyledSection = styled.section`
     max-width:1000px;
     width:100vw;
     min-height:100vh;
-    margin:0 auto;
+    margin:0 auto 100px auto;
     color:#B3B3B3;
     font-family:'DM Sans',sans-serif;
     
@@ -21,7 +22,7 @@ const StyledSection = styled.section`
     }
 
     .content {
-        gap:85px;
+        gap:40px;
         display:flex;
     }
 
@@ -34,10 +35,12 @@ const StyledSection = styled.section`
     >div h3 {
         color:white;
         font-size:22px;
+        
     }
 
     .colored {
         color:var(--primary);
+        font-weight:500;
     }
 
     @media (max-width:1000px) {
@@ -69,23 +72,23 @@ const StyledSection = styled.section`
 export function AboutMe() {
     return(
 
-    <StyledSection>
+    <StyledSection id='about-me'>
         <h2>About me</h2>
         <div className='content'>
 
-        <img src={'https://placehold.co/400x400'}/>
+        <img src={avatar} alt='photo de Endry Lundy'/>
         <div>
-        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </h3>
+        <h3>Je suis un Développeur Web spécialisé en Angular 18 et Nodejs </h3>
         <p>
-            Velit voluptatibus officiis magnam ut iste, libero dolor <span className='colored'>consectetur</span> minima vel quam fugiat magni ullam ex id, voluptas fuga cumque odit doloribus quis natus nam corporis voluptate.
+            Plus qu'un de développeur, j'ai une passion pour <span className='colored'>l'esthétique</span>, j'aime créer des designs qui allient fonctionnalité et beauté.
         </p>
 
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor  ut labore <span className='colored'>incididunt</span> et dolore magna aliqua.
+            La satisfaction du client est ma plus garnde priorité, je m'engage à fournir un travail soigné, de qualité et qui <span className='colored'>satisfait</span> parfaitement à votre besoin
         </p>
 
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. consectetur adipiscing.
+            Plus que coder pour coder je vois le code comme une <span className='colored' >aventure</span>.  Chaque projet est une exploration où je découvre de nouvelles idées, surmonte des défis, et trouve des solutions créatives. 
         </p>
         </div>
 

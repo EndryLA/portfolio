@@ -4,9 +4,9 @@ import { ProfessionalExperience } from "../components/ProfessionalExperience";
 const StyledSection = styled.section`
     display:flex;
     flex-direction:column;
-    width:100vw;
+    width:100%;
     max-width:1000px;
-    margin:0 auto;
+    margin:0 auto 80px auto;
     min-height:100vh;
     align-items:center;
     justify-content:space-around;
@@ -43,19 +43,19 @@ export function ProfessionalExperiences() {
             <div className='container'>
 
             <ProfessionalExperience
-                period='février 2022 - présent'
+                period='école Studi - février 2022 / présent'
                 title='Graduate Développeur Web Full Stack'
-                description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+                description="Création d'un site web pour l'Agapé Company pour leur spectacle Cendrillon Wesh!"
                 />
             <ProfessionalExperience
-                period='juillet 2024 - présent'
-                title="Développeur Web Front-end"
-                description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+                period='Agape Company - juillet 2024 / présent'
+                title="Développeur Web Front End"
+                description="Création d'un site web pour l'Agapé Company pour leur spectacle Cendrillon Wesh!"
                 />
             <ProfessionalExperience
-                period='avril 2022 - Juin 2024'
-                title="Hôte d'Accueil Polyvalent"
-                description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+                period='Dev Entrepreneurs Formation - Juin 2024 - Août 2024'
+                title="Développeur Angular / UX/UI Designer"
+                description="Design et Développment du site pour Dev Entrepreneurs Formation."
                 />
             </div>
         </StyledSection>

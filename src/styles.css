@@ -13,6 +13,7 @@
     --primary:#FCD612;
     --gray:#B3B3B3;
     --dark-gray:#1E2235;
+    
 }
 
 
@@ -30,6 +31,7 @@ a {
     color:unset;
     text-decoration: none;
 }
+
 
 .buttons {
     display:flex;

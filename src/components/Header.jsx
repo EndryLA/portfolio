@@ -43,7 +43,6 @@ const StyledHeader = styled.header`
 export function Header() {
 
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
-    console.log(viewportWidth)
 
     useEffect(() => {
         const handleResize = () => {
@@ -61,10 +60,9 @@ export function Header() {
         <StyledHeader>
             <nav>
                 <ul>
-                    <li>about</li>
-                    <li>skills</li>
-                    <li>projects</li>
-                    <li>contact</li>
+                    <li><a href='#about-me'>about</a></li>
+                    <li><a href='#skills'>skills</a></li>
+                    <li><a href='#projects'>projects</a></li>
                 </ul>
             </nav>
         </StyledHeader>    

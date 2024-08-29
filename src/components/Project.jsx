@@ -27,13 +27,12 @@ const Container = styled.div`
         display:flex;
         flex-direction:column;
         max-width:300px;
-        min-height:350px;
+        min-height:300px;
         width:80vw;
-        gap:10px;
         border-radius:8px;
         transition:.3s;
         padding:8px 8px 28px 8px;
-        background-color:rgba(15,15,15,1);
+        background-color:rgba(20,20,20,1);
         cursor:pointer;
     }
 
@@ -49,36 +48,38 @@ const Container = styled.div`
         color:white;
         font-size:20px;
         font-family:'DM Sans', sans-serif;
-        margin:0;
+        margin:4px 0 0 0;
     }
 
     >a p {
         color:var(--gray);
         font-family:'DM Sans', sans-serif;
-        margin:0;
+        margin:0 0 8px 0;
+        display:flex;
+        font-size:14px;
     }
 
     > a div {
         width:100%;
         display:flex;
-        gap:10px;
+        gap:4px 10px;
         flex-wrap:wrap;
         padding:0;
         margin-top:10px;
     }
 
     > a:hover {
-        background-color:rgba(20,20,20,1);
+        background-color:rgba(25,25,25,1);
     }
 `
 
 
-export function Project({src,title,description,stackArray, href}) {
+export function Project({src,title,description,stackArray,href}) {
     return(
         <Container>
             <a href={href} target='_blank'>
 
-            <img src={src}/>
+            <img src={src} alt={title}/>
             <h4>{ title}</h4>
             <p>{description}</p>
             <div>

@@ -11,10 +11,11 @@ const StyledButton = styled.button`
     font-family:'ocr';
     cursor:pointer;
     transition: box-shadow 0.3s ease;
+    transition:.33s;
 
     
     &:hover {
-        box-shadow:0px 2px 50px rgba(252, 214, 18, .3);
+        box-shadow:0px 2px 25px rgba(252, 214, 18, .3);
     }
 
     @media (max-width:768px) {
