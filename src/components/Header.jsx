@@ -105,7 +105,7 @@ const Sidebar = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
   background-color: var(--primary);
   color: black;
@@ -120,7 +120,7 @@ const Sidebar = styled.div`
     padding: 0;
     margin:0;
     width:100%;
-    height:100vh;
+    height:100svh;
     display:flex;
     flex-direction:column;
     align-items:center;

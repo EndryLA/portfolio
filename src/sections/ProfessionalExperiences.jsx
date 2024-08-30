@@ -7,7 +7,7 @@ const StyledSection = styled.section`
     width:100%;
     max-width:1000px;
     margin:0 auto 80px auto;
-    min-height:100vh;
+    min-height:100svh;
     align-items:center;
     justify-content:space-around;
 

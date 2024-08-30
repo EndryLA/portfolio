@@ -5,7 +5,7 @@ import styled from "styled-components"
 
     width:100%;
     margin:0 auto;
-    min-height:100vh;
+    min-height:100svh;
 
     
 

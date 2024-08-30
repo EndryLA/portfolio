@@ -9,7 +9,7 @@ const StyledSection = styled.section`
     align-items:center;
     max-width:1000px;
     width:100vw;
-    min-height:100vh;
+    min-height:100svh;
     margin:0 auto 100px auto;
     color:#B3B3B3;
     font-family:'DM Sans',sans-serif;

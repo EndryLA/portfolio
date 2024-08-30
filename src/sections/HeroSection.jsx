@@ -2,7 +2,7 @@ import { ButtonMedium } from "../components/buttons/ButtonMedium";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
-    min-height:100vh;
+    min-height:100svh;
     box-sizing:border-box;
     margin:0;
     color:white;
