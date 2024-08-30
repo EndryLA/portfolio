@@ -105,8 +105,10 @@ const Sidebar = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  height: 100svh;
+  left:0;
+  bottom:0;
   width: 100vw;
+  height:100svh;
   background-color: var(--primary);
   color: black;
   box-sizing: border-box;
