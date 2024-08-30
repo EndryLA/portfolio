@@ -3,12 +3,10 @@ import { HeroSection } from './sections/HeroSection';
 import { Header } from './components/Header';
 import { Socials } from './components/Socials';
 import {AboutMe} from './sections/AboutMe.jsx'
-import { ProfessionalExperiences } from './sections/ProfessionalExperiences.jsx';
-import { Spinner } from './components/Spinner.jsx';
-import AnimatedCursor from './components/AnimatedCursor.jsx';
 import TechStackSection from './sections/TechStackSection.jsx';
 import Footer from './components/Footer.jsx';
 import ProjectsSection from './sections/ProjectsSection.jsx';
+import ContactSection from './sections/ContactSection.jsx';
 
 
 
@@ -27,6 +25,7 @@ function App() {
     <Socials/>
     <TechStackSection/>
     <ProjectsSection/>
+    <ContactSection/>
     <Footer/>
     </>
 

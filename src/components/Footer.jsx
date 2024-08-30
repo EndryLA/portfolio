@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import GithubIcon from '@assets/icons/github.svg'
-import TwitterIcon from '@assets/icons/twitter.svg'
 import LinkedInIcon from '@assets/icons/linkedin.svg'
 
 const StyledFooter = styled.footer`

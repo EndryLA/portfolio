@@ -1,10 +1,4 @@
 import styled from 'styled-components'
-import html from '@assets/stack-logos/html.svg'
-import css from '@assets/stack-logos/css.svg'
-import javascript from '@assets/stack-logos/javascript.svg'
-import react from '@assets/stack-logos/react.svg'
-import angular from '@assets/stack-logos/angular.svg'
-import bootstrap from '@assets/stack-logos/bootstrap.svg'
  
 const StyledIconDiv = styled.div`
     color:white;
@@ -13,7 +7,7 @@ const StyledIconDiv = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
-    width:100px;
+    width:98px;
 
     >img {
         background-color:var(--dark-gray);
@@ -25,6 +19,11 @@ const StyledContainer = styled.div`
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:24px;
+
+    @media screen and (max-width:400px) {
+    gap:12px;
+    }
+
 `
 
 const StyledTechStack = styled.div`
@@ -43,6 +42,10 @@ const StyledTechStack = styled.div`
         font-weight:500;
         vertical-align:top;
         margin-top:0;
+    }
+
+    @media screen and (max-width:480px) {
+        max-width:300px;
     }
 
 `

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { TechImage } from '../components/TechStack'
 import {TechStack} from '../components/TechStack'
 
 import html from '@assets/stack-logos/html.svg'
@@ -13,7 +12,6 @@ import nodejs from '@assets/stack-logos/nodejs.svg'
 import php from '@assets/stack-logos/php.svg'
 import mysql from '@assets/stack-logos/mysql.svg'
 import mongodb from '@assets/stack-logos/mongodb.svg'
-import symfony from '@assets/stack-logos/symfony.svg'
 import express from '@assets/stack-logos/express.svg'
 
 import canva from '@assets/stack-logos/canva.svg'
