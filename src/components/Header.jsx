@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
     left:0;
     color:white;
     font-family:'Bebas Neue',sans-serif;
-    font-size:24px;
+    font-size:18px;
     font-weight:500;
     width:100%;
     padding:10px 20px;
@@ -29,7 +29,7 @@ const StyledHeader = styled.header`
 
     > nav ul li{
         letter-spacing:.15rem;
-        margin:0 15px;
+        margin:0 10px;
         cursor:pointer;
         transition:.4s;
     }
@@ -102,13 +102,14 @@ const CloseButton = styled.div`
 
 // Styled sidebar
 const Sidebar = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   left:0;
   bottom:0;
   width: 100vw;
-  height:100svh;
+  min-height:100dvh;
+  overflow:hidden;
   background-color: var(--primary);
   color: black;
   box-sizing: border-box;
@@ -122,7 +123,7 @@ const Sidebar = styled.div`
     padding: 0;
     margin:0;
     width:100%;
-    height:100svh;
+    min-height:100dvh;
     display:flex;
     flex-direction:column;
     align-items:center;

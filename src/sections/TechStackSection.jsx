@@ -22,6 +22,8 @@ import git from '@assets/stack-logos/git.svg'
 import github from '@assets/stack-logos/github.svg'
 import postman from '@assets/stack-logos/postman.svg'
 import chatgpt from '@assets/stack-logos/chatgpt.svg'
+import docker from '@assets/stack-logos/docker.svg'
+import jira from '@assets/stack-logos/jira.svg'
 
 
 
@@ -55,6 +57,8 @@ const toolsArray = [
     {icon:github,name:'github'},
     {icon:postman,name:'postman'},
     {icon:chatgpt,name:'chatgpt'},
+    {icon:docker,name:'docker'},
+    {icon:jira,name:'jira'},
 
 ]
 

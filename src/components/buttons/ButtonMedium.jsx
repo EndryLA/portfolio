@@ -25,6 +25,7 @@ const StyledButton = styled.button`
     `;
 
 export function ButtonMedium({content}){
+
     return (
         <StyledButton>
             {content}

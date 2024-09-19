@@ -84,7 +84,7 @@ export function AboutMe() {
         </p>
 
         <p>
-            La satisfaction du client est ma plus garnde priorité, je m'engage à fournir un travail soigné, de qualité et qui <span className='colored'>satisfait</span> parfaitement à votre besoin
+            La satisfaction du client est ma plus grande priorité, je m'engage à fournir un travail soigné, de qualité et qui <span className='colored'>satisfait</span> parfaitement à votre besoin
         </p>
 
         <p>

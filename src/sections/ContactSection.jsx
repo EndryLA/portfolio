@@ -55,7 +55,7 @@ import styled from "styled-components"
     }
     
     textarea {
-        min-height:300px;
+        min-height:220px;
         max-width:480px;
         width:100%;
         padding:8px;

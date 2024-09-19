@@ -62,11 +62,11 @@ export default function ProjectsSection() {
                 />
 
                 <Project 
-                href=''
+                href='https://cendrillonwesh.vercel.app/'
                 stackArray={cendrillonWeshStack}
                 src={CendrillonWesh}
                 title = {'Cendrillon Wesh!'}
-                description='Bientôt Disponible !'
+                description='En Ligne'
                 />
 
                 <Project
