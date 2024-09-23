@@ -35,10 +35,11 @@ const StyledSection = styled.section`
     @
 `
 
-export function ProfessionalExperiences() {
+export default function ProfessionalExperiences() {
     return(
         <StyledSection>
             <h2>Expériences Professionelles</h2>
+
 
             <div className='container'>
 

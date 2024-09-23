@@ -110,7 +110,7 @@ export function ContactSection(){
                     <input type='email' name='email' />
                 </div>
                 <div>
-                    <label htmlFor='message'>Décrivez votre project</label>
+                    <label htmlFor='message'>Décrivez votre projet</label>
                     <textarea type='text' name='message' ></textarea>
                 </div>
                 <input type='submit' className="submit-btn"/>

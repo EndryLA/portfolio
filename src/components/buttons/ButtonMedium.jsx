@@ -24,10 +24,17 @@ const StyledButton = styled.button`
     }
     `;
 
-export function ButtonMedium({content}){
+export function ButtonMedium({content, targetId }){
+
+    const handleScroll = () => {
+        const section = document.getElementById(targetId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' }); // Smooth scrolling
+        }
+    };
 
     return (
-        <StyledButton>
+        <StyledButton onClick={handleScroll}>
             {content}
         </StyledButton>
     )

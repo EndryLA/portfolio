@@ -14,10 +14,6 @@ import ContactSection from './sections/ContactSection.jsx';
 function App() {
   return (
     <>
-    {/* <div className='construction-site'>
-      <h1>Site en construction</h1>
-      <Spinner />
-    </div> */}
 
     <Header/>
     <HeroSection/>
@@ -27,9 +23,8 @@ function App() {
     <ProjectsSection/>
     <ContactSection/>
     <Footer/>
-    </>
 
-    
+    </>
   )
 }
 

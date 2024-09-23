@@ -59,8 +59,8 @@ export function HeroSection() {
             Développeur Web + UX/UI Designer
             </StyledParagraph>
             <div className='buttons'>
-                 <ButtonMedium content={'voir projets'}/> 
-                 <ButtonMedium content={'contactez-moi'}/> 
+                 <ButtonMedium content={'voir projets'} targetId='projects'/> 
+                 <ButtonMedium content={'contactez-moi'} targetId='contact'/> 
             </div>
         </StyledSection>
         </>
