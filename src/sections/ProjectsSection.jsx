@@ -54,11 +54,11 @@ export default function ProjectsSection() {
                 />
 
                 <Project 
-                href=''
+                href='https://garagepoirot.vercel.app/'
                 stackArray={garagePoirotStack}
                 src={GaragePoirot}
                 title="Garage V. Poirot"
-                description='Bientôt Disponible !'
+                description='En Ligne'
                 />
 
                 <Project 
