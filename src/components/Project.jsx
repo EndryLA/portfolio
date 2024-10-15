@@ -79,7 +79,7 @@ export function Project({src,title,description,stackArray,href}) {
         <Container>
             <a href={href} target='_blank'>
 
-            <img src={src} alt={title}/>
+            <img src={src} alt={title} loading='lazy'/>
             <h4>{ title}</h4>
             <p>{description}</p>
             <div>

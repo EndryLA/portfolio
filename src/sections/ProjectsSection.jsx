@@ -7,6 +7,7 @@ import ZxwlPhotography from '@assets/projects/zxwl-photography.png'
 import WeatherApp from '@assets/projects/weather-app.png'
 import CendrillonWesh from '@assets/projects/cendrillon-wesh.webp'
 import GaragePoirot from '@assets/projects/garage-poirot.webp'
+import RimberioCoffe from '@assets/projects/rimberio.png'
 
 
 const Section = styled.section`
@@ -33,11 +34,12 @@ const Container = styled.div`
 
     
 `
-const arcadiaStack = ['react','mongodb','express','nodejs']
+const arcadiaStack = ['react 18','mongodb','express','nodejs']
 const zxwlStack = ['html','css','javascript']
 const weatherAppStack = ['html','css','javascript','Fetch API']
-const cendrillonWeshStack = ['angular 18','node js', 'typescript']
-const garagePoirotStack = ['angular 18','mysql','nodejs','express']
+const cendrillonWeshStack = ['angular 18','node js', 'typescript','sass']
+const garagePoirotStack = ['angular 18','typescript','mysql','nodejs','express']
+const rimberioStack = ['figma','webflow']
 
 
 export default function ProjectsSection() {
@@ -62,7 +64,7 @@ export default function ProjectsSection() {
                 />
 
                 <Project 
-                href='https://cendrillonwesh.vercel.app/'
+                href='https://cendrillonwesh.fr/'
                 stackArray={cendrillonWeshStack}
                 src={CendrillonWesh}
                 title = {'Cendrillon Wesh!'}
@@ -83,6 +85,14 @@ export default function ProjectsSection() {
                 src={WeatherApp}
                 title = 'Weather App'
                 description='En Ligne'
+                />
+
+                <Project
+                href=''
+                stackArray={rimberioStack}
+                src={RimberioCoffe}
+                title = 'Rimberio Coffee'
+                description='Bientôt Disponible !' 
                 />
 
                 
