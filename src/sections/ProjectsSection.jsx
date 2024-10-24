@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Project from "../components/Project"
 
 import ArcadiaZoo from '@assets/projects/arcadia-zoo.png'
-import ZxwlPhotography from '@assets/projects/zxwl-photography.png'
+import ZxwlPhotography from '@assets/projects/zxwl-photography.webp'
 import WeatherApp from '@assets/projects/weather-app.png'
 import CendrillonWesh from '@assets/projects/cendrillon-wesh.webp'
 import GaragePoirot from '@assets/projects/garage-poirot.webp'
@@ -35,7 +35,7 @@ const Container = styled.div`
     
 `
 const arcadiaStack = ['react 18','mongodb','express','nodejs']
-const zxwlStack = ['html','css','javascript']
+const zxwlStack = ['html','css','javascript','BEM convention']
 const weatherAppStack = ['html','css','javascript','Fetch API']
 const cendrillonWeshStack = ['angular 18','node js', 'typescript','sass']
 const garagePoirotStack = ['angular 18','typescript','mysql','nodejs','express']
@@ -72,7 +72,7 @@ export default function ProjectsSection() {
                 />
 
                 <Project
-                href='https://zxwl.vercel.app/'
+                href='https://zxwl-photography.vercel.app/'
                 stackArray={zxwlStack}
                 src={ZxwlPhotography}
                 title = 'Zxwl Photography'
