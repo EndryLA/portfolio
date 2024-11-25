@@ -13,6 +13,8 @@ import php from '@assets/stack-logos/php.svg'
 import mysql from '@assets/stack-logos/mysql.svg'
 import mongodb from '@assets/stack-logos/mongodb.svg'
 import express from '@assets/stack-logos/express.svg'
+import java from '@assets/stack-logos/java.svg'
+import springboot from '@assets/stack-logos/springboot.svg'
 
 import canva from '@assets/stack-logos/canva.svg'
 import webflow from '@assets/stack-logos/webflow.svg'
@@ -29,19 +31,21 @@ import jira from '@assets/stack-logos/jira.svg'
 
 
 
+
 const frontEndArray = [
     {icon:html,name:'html'},
-    {icon:css,name:'css'},
+    {icon:css,name:'css/scss'},
     {icon:javascript,name:'javascript'},
-    {icon:react,name:'react 18'},
-    {icon:angular,name:'angular 18'},
+    {icon:angular,name:'angular'},
+    {icon:react,name:'react'},
     {icon:bootstrap,name:'bootstrap'}
 ]
 
 const backEndArray = [
     {icon:nodejs,name:'nodejs'},
     {icon:express,name:'express'},
-    {icon:php,name:'php'},
+    {icon:java,name:'java'},
+    {icon:springboot,name:'spring boot'},
     {icon:mysql,name:'mysql'},
     {icon:mongodb,name:'mongodb'},
 ]

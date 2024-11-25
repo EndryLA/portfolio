@@ -34,11 +34,11 @@ const Container = styled.div`
 
     
 `
-const arcadiaStack = ['react 18','mongodb','express','nodejs']
+const arcadiaStack = ['react','mongodb','express','nodejs']
 const zxwlStack = ['html','css','javascript','BEM convention']
 const weatherAppStack = ['html','css','javascript','Fetch API']
-const cendrillonWeshStack = ['angular 18','node js', 'typescript','sass']
-const garagePoirotStack = ['angular 18','typescript','mysql','nodejs','express']
+const cendrillonWeshStack = ['angular','node js', 'typescript','sass']
+const garagePoirotStack = ['angular','typescript','mysql','nodejs','express']
 const rimberioStack = ['figma','webflow']
 
 

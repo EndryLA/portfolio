@@ -9,6 +9,12 @@ const StyledIconDiv = styled.div`
     align-items:center;
     width:98px;
 
+    p {
+        overflow:hidden;
+        text-align:center;
+        line-height:20px;
+    }
+
     >img {
         background-color:var(--dark-gray);
         border-radius:16px;
@@ -30,7 +36,6 @@ const StyledTechStack = styled.div`
     color:var(--gray);
     font-family:'DM Sans',sans-serif;
     font-size:26px;
-    letter-spacing:-6%;
     max-width:360px;
     margin:0 auto;
     display:flex;
