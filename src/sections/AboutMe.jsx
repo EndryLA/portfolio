@@ -78,7 +78,7 @@ export function AboutMe() {
 
         <img src={avatar} alt='photo de Endry Lundy'/>
         <div>
-        <h3>Je suis un Développeur Web spécialisé en Angular 18 et Nodejs </h3>
+        <h3>Je suis un Développeur Web spécialisé en Angular, Java et Nodejs </h3>
         <p>
             Plus qu'un de développeur, j'ai une passion pour <span className='colored'>l'esthétique</span>, j'aime créer des designs qui allient fonctionnalité et beauté.
         </p>
