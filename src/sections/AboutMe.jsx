@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import avatar from '@assets/icons/avatar.svg'
+import profile from '@assets/images/profile.png'
 
 const StyledSection = styled.section`
 
@@ -9,7 +9,7 @@ const StyledSection = styled.section`
     align-items:center;
     max-width:1000px;
     width:100vw;
-    min-height:100svh;
+    min-height:120svh;
     margin:0 auto 100px auto;
     color:#B3B3B3;
     font-family:'DM Sans',sans-serif;
@@ -26,10 +26,19 @@ const StyledSection = styled.section`
         display:flex;
     }
 
+    .content img {
+        width:400px;
+        height:400px;
+        object-fit:cover;
+        border-radius:50%;
+        flex-shrink:0;
+    }
+
     .content > div {
         margin:auto;
         display:flex;
         flex-direction:column;
+        max-width:550px;
     }
 
     >div h3 {
@@ -58,13 +67,15 @@ const StyledSection = styled.section`
             max-width:90%
         }
         .content img {
-            max-width:400px;
+            width:300px;
+            height:300px;
         }
     }
 
     @media (max-width:440px) {
         .content img {
-            max-width:90vw;
+            width:90vw;
+            height:90vw;
         }
     }
 `
@@ -76,11 +87,11 @@ export function AboutMe() {
         <h2>About me</h2>
         <div className='content'>
 
-        <img src={avatar} alt='photo de Endry Lundy'/>
+        <img src={profile} alt='photo de Endry Lundy'/>
         <div>
-        <h3>Je suis un Développeur Web spécialisé en Angular, Java et Nodejs </h3>
+        <h3>Développeur full-stack spécialisé en Java & Angular </h3>
         <p>
-            Plus qu'un de développeur, j'ai une passion pour <span className='colored'>l'esthétique</span>, j'aime créer des designs qui allient fonctionnalité et beauté.
+            Au niveau du front, je me spécialise également dans <span className='colored'>le design</span>, je développe des interfaces performantes avec des parcours utilisateurs optimisés pour vos besoins.
         </p>
 
         <p>
