@@ -8,6 +8,7 @@ import WeatherApp from '@assets/projects/weather-app.png'
 import CendrillonWesh from '@assets/projects/cendrillon-wesh.webp'
 import GaragePoirot from '@assets/projects/garage-poirot.webp'
 import RimberioCoffe from '@assets/projects/rimberio.png'
+import GithubReadmeGenerator from '@assets/projects/github-readme-generator.png'
 
 
 const Section = styled.section`
@@ -34,19 +35,29 @@ const Container = styled.div`
 
     
 `
-const arcadiaStack = ['react','mongodb','express','nodejs']
-const zxwlStack = ['html','css','javascript','BEM convention']
-const weatherAppStack = ['html','css','javascript','Fetch API']
-const cendrillonWeshStack = ['angular','node js', 'typescript','sass']
-const garagePoirotStack = ['angular','typescript','mysql','nodejs','express']
-const rimberioStack = ['figma','webflow']
-
+const arcadiaStack = ['React','MongoDB','ExpressJs','NodeJs']
+const zxwlStack = ['HTML','CSS','Javascript','BEM Convention']
+const weatherAppStack = ['HTML','CSS','Javascript','Fetch API']
+const cendrillonWeshStack = ['Angular','NodeJs', 'Typescript','SCSS']
+const garagePoirotStack = ['Angular','Typescript','MySQL','NodeJs','ExpressJs']
+const rimberioStack = ['Figma','Webflow']
+const readMeGeneratorStack = ['Angular', 'i18n','Design System']
 
 export default function ProjectsSection() {
     return (
         <Section id='projects'>
-            <h2>Projets</h2>
+            <h2>Projects</h2>
             <Container>
+
+                <Project
+                    href='https://github-generator-nine.vercel.app/'
+                    stackArray={readMeGeneratorStack}
+                    src={GithubReadmeGenerator}
+                    title="Github ReadMe Generator"
+                    description='En Ligne'
+
+                />
+
                 <Project
                 href='https://arcadia-ecf.vercel.app/'
                 stackArray={arcadiaStack}

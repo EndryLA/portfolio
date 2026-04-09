@@ -42,9 +42,9 @@ const frontEndArray = [
 ]
 
 const backEndArray = [
+    {icon:java,name:'java'},
     {icon:nodejs,name:'nodejs'},
     {icon:express,name:'express'},
-    {icon:java,name:'java'},
     {icon:springboot,name:'spring boot'},
     {icon:mysql,name:'mysql'},
     {icon:mongodb,name:'mongodb'},
