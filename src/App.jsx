@@ -7,6 +7,7 @@ import TechStackSection from './sections/TechStackSection.jsx';
 import Footer from './components/Footer.jsx';
 import ProjectsSection from './sections/ProjectsSection.jsx';
 import ContactSection from './sections/ContactSection.jsx';
+import ProfessionalExperiences from './sections/ProfessionalExperiences.jsx';
 
 
 

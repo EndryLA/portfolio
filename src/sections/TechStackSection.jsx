@@ -4,17 +4,16 @@ import {TechStack} from '../components/TechStack'
 import html from '@assets/stack-logos/html.svg'
 import css from '@assets/stack-logos/css.svg'
 import javascript from '@assets/stack-logos/javascript.svg'
-import react from '@assets/stack-logos/react.svg'
 import angular from '@assets/stack-logos/angular.svg'
-import bootstrap from '@assets/stack-logos/bootstrap.svg'
+import rxjs from '@assets/stack-logos/rxjs.svg'
+import typescript from '@assets/stack-logos/typescript.svg'
 
 import nodejs from '@assets/stack-logos/nodejs.svg'
-import php from '@assets/stack-logos/php.svg'
-import mysql from '@assets/stack-logos/mysql.svg'
 import mongodb from '@assets/stack-logos/mongodb.svg'
-import express from '@assets/stack-logos/express.svg'
+import nestjs from '@assets/stack-logos/nestjs.svg'
 import java from '@assets/stack-logos/java.svg'
 import springboot from '@assets/stack-logos/springboot.svg'
+import psql from '@assets/stack-logos/postgresql.svg'
 
 import canva from '@assets/stack-logos/canva.svg'
 import webflow from '@assets/stack-logos/webflow.svg'
@@ -23,7 +22,7 @@ import figma from '@assets/stack-logos/figma.svg'
 import git from '@assets/stack-logos/git.svg'
 import github from '@assets/stack-logos/github.svg'
 import postman from '@assets/stack-logos/postman.svg'
-import chatgpt from '@assets/stack-logos/chatgpt.svg'
+import claude from '@assets/stack-logos/claude.svg'
 import docker from '@assets/stack-logos/docker.svg'
 import jira from '@assets/stack-logos/jira.svg'
 
@@ -33,36 +32,36 @@ import jira from '@assets/stack-logos/jira.svg'
 
 
 const frontEndArray = [
-    {icon:html,name:'html'},
-    {icon:css,name:'css/scss'},
-    {icon:javascript,name:'javascript'},
-    {icon:angular,name:'angular'},
-    {icon:react,name:'react'},
-    {icon:bootstrap,name:'bootstrap'}
+    {icon:html,name:'HTML'},
+    {icon:css,name:'CSS/SCSS'},
+    {icon:javascript,name:'Javascript'},
+    {icon:angular,name:'Angular'},
+    {icon:typescript,name:'Typescript'},
+    {icon:rxjs,name:'RxJS'}
 ]
 
 const backEndArray = [
-    {icon:java,name:'java'},
-    {icon:nodejs,name:'nodejs'},
-    {icon:express,name:'express'},
-    {icon:springboot,name:'spring boot'},
-    {icon:mysql,name:'mysql'},
-    {icon:mongodb,name:'mongodb'},
+    {icon:java,name:'Java'},
+    {icon:nodejs,name:'NodeJS'},
+    {icon:nestjs,name:'NestJS'},
+    {icon:springboot,name:'Spring Boot'},
+    {icon:psql,name:'PostgreSQL'},
+    {icon:mongodb,name:'MongoDB'},
 ]
 
 const UxArray = [
-    {icon:figma,name:'figma'},
-    {icon:webflow,name:'webflow'},
-    {icon:canva,name:'canva'},
+    {icon:figma,name:'Figma'},
+    {icon:webflow,name:'Webflow'},
+    {icon:canva,name:'Canva'},
 ]
 
 const toolsArray = [
-    {icon:git,name:'git'},
-    {icon:github,name:'github'},
-    {icon:postman,name:'postman'},
-    {icon:chatgpt,name:'chatgpt'},
-    {icon:docker,name:'docker'},
-    {icon:jira,name:'jira'},
+    {icon:git,name:'Git'},
+    {icon:claude,name:'Claude'},
+    {icon:docker,name:'Docker'},
+    {icon:github,name:'Github'},
+    {icon:postman,name:'Postman'},
+    {icon:jira,name:'Jira'},
 
 ]
 

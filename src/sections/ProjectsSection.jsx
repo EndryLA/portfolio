@@ -4,7 +4,7 @@ import Project from "../components/Project"
 
 import ArcadiaZoo from '@assets/projects/arcadia-zoo.png'
 import ZxwlPhotography from '@assets/projects/zxwl-photography.webp'
-import WeatherApp from '@assets/projects/weather-app.png'
+import WeatherApp from '@assets/projects/weather-forecast.png'
 import CendrillonWesh from '@assets/projects/cendrillon-wesh.webp'
 import GaragePoirot from '@assets/projects/garage-poirot.webp'
 import RimberioCoffe from '@assets/projects/rimberio.png'
@@ -37,7 +37,7 @@ const Container = styled.div`
 `
 const arcadiaStack = ['React','MongoDB','ExpressJs','NodeJs']
 const zxwlStack = ['HTML','CSS','Javascript','BEM Convention']
-const weatherAppStack = ['HTML','CSS','Javascript','Fetch API']
+const weatherAppStack = ['Angular','Typescript','RxJS']
 const cendrillonWeshStack = ['Angular','NodeJs', 'Typescript','SCSS']
 const garagePoirotStack = ['Angular','Typescript','MySQL','NodeJs','ExpressJs']
 const rimberioStack = ['Figma','Webflow']
@@ -91,10 +91,10 @@ export default function ProjectsSection() {
                 />
 
                 <Project
-                href='https://weather-app-nine-neon-48.vercel.app/'
+                href='https://weather-forecast-chi-steel.vercel.app/'
                 stackArray={weatherAppStack}
                 src={WeatherApp}
-                title = 'Weather App'
+                title = 'Weather Forecast'
                 description='En Ligne'
                 />
 
