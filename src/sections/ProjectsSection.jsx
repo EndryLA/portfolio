@@ -9,6 +9,7 @@ import CendrillonWesh from '@assets/projects/cendrillon-wesh.webp'
 import GaragePoirot from '@assets/projects/garage-poirot.webp'
 import RimberioCoffe from '@assets/projects/rimberio.png'
 import GithubReadmeGenerator from '@assets/projects/github-readme-generator.png'
+import NebulaUI from '@assets/projects/nebula-ui.png'
 
 
 const Section = styled.section`
@@ -42,12 +43,22 @@ const cendrillonWeshStack = ['Angular','NodeJs', 'Typescript','SCSS']
 const garagePoirotStack = ['Angular','Typescript','MySQL','NodeJs','ExpressJs']
 const rimberioStack = ['Figma','Webflow']
 const readMeGeneratorStack = ['Angular', 'i18n','Design System']
+const nebulaUIStack = ['Angular', 'Ui library','i18n','RxJs']
 
 export default function ProjectsSection() {
     return (
         <Section id='projects'>
             <h2>Projects</h2>
             <Container>
+
+                <Project
+                    href='https://nebula-ui-pied.vercel.app/'
+                    stackArray={nebulaUIStack}
+                    src={NebulaUI}
+                    title="Nebula UI"
+                    description='En Ligne'
+
+                />
 
                 <Project
                     href='https://github-generator-nine.vercel.app/'
@@ -59,11 +70,11 @@ export default function ProjectsSection() {
                 />
 
                 <Project
-                href='https://arcadia-ecf.vercel.app/'
-                stackArray={arcadiaStack}
-                src={ArcadiaZoo}
-                title = 'Zoo Arcadia'
-                description='En Ligne '
+                href='https://weather-forecast-chi-steel.vercel.app/'
+                stackArray={weatherAppStack}
+                src={WeatherApp}
+                title = 'Weather Forecast'
+                description='En Ligne'
                 />
 
                 <Project 
@@ -74,13 +85,15 @@ export default function ProjectsSection() {
                 description='En Ligne'
                 />
 
-                <Project 
-                href='https://cendrillonwesh.fr/'
-                stackArray={cendrillonWeshStack}
-                src={CendrillonWesh}
-                title = {'Cendrillon Wesh!'}
-                description='En Ligne'
+                <Project
+                href='https://arcadia-ecf.vercel.app/'
+                stackArray={arcadiaStack}
+                src={ArcadiaZoo}
+                title = 'Zoo Arcadia'
+                description='En Ligne '
                 />
+
+                
 
                 <Project
                 href='https://zxwl-photography.vercel.app/'
@@ -90,13 +103,17 @@ export default function ProjectsSection() {
                 description='En Ligne' 
                 />
 
-                <Project
-                href='https://weather-forecast-chi-steel.vercel.app/'
-                stackArray={weatherAppStack}
-                src={WeatherApp}
-                title = 'Weather Forecast'
+                <Project 
+                href='https://cendrillonwesh.fr/'
+                stackArray={cendrillonWeshStack}
+                src={CendrillonWesh}
+                title = {'Cendrillon Wesh!'}
                 description='En Ligne'
                 />
+
+                
+
+                
 
                 <Project
                 href=''
