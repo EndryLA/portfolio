@@ -1,123 +1,164 @@
-import styled from "styled-components"
+import styled from 'styled-components'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { CONTACT_EMAIL } from '../data'
 
-
-    const Section = styled.section`
-
-    width:100%;
+const Card = styled(motion.div)`
+    position:relative;
+    max-width:720px;
     margin:0 auto;
-    min-height:100svh;
 
-    
+    .glow {
+        position:absolute;
+        inset:10% -8% -4% -8%;
+        z-index:-1;
+        border-radius:48px;
+        background:linear-gradient(120deg, #FFE97A, #FFD1A6);
+        transform:rotate(2deg);
+        opacity:.6;
+    }
 
-    h2 {
-        text-align:center;
+    .browser {
+        overflow:visible;
     }
 
     form {
-        width:80%;
-        margin:0 auto;
-        max-width:480px;
-        display:flex;
-        flex-direction:column;
-        gap:18px;
-        margin:0 auto;
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:18px 16px;
+        padding:clamp(20px, 4vw, 36px);
     }
 
-    div {
-    
+    .field {
         display:flex;
         flex-direction:column;
-        gap:4px;
-        width:100%;
+        gap:8px;
+    }
+
+    .field.full {
+        grid-column:1 / -1;
     }
 
     label {
-        color:var(--primary);
-        font-size:clamp(16px,4vw,18px);
-        font-family:'DM Sans',sans-serif;
-        font-weight:bold;
-        text-transform:uppercase;
-        padding-left:4px;
+        font-size:14px;
+        font-weight:700;
     }
 
-    input {
-        width:100%;
-        max-width:480px;
-        padding:12px 8px;
-        background-color:var(--dark-gray);
-        outline:none;
-        border:none;
-        color:white;
-        font-family:'DM Sans',sans-serif;
-        font-size:16px;
-        border-radius:4px;
-        box-sizing:border-box;
-    }
-    
+    input,
     textarea {
-        min-height:220px;
-        max-width:480px;
         width:100%;
-        padding:8px;
-        background-color:var(--dark-gray);
-        outline:none;
-        border:none;
-        color:white;
-        font-family:'DM Sans',sans-serif;
+        padding:13px 16px;
+        font-family:var(--font);
         font-size:16px;
-        border-radius:8px;
-        box-sizing:border-box;
-        resize:none;
+        color:var(--ink);
+        background-color:var(--bg-soft);
+        border:none;
+        border-radius:12px;
+        box-shadow:inset 0 0 0 1px var(--line);
+        transition:box-shadow .2s ease, background-color .2s ease;
     }
 
-    .submit-btn {
-        background-color:var(--dark-gray);
-        color:var(--primary);
-        font-weight:bold;
-        width:unset;
-        font-size:18px;
-        text-transform:uppercase;
-        padding:15px 36px;
-        cursor:pointer;
-        transition:.2s;
-        align-self:flex-start;
+    input::placeholder,
+    textarea::placeholder {
+        color:#9A9DAE;
     }
 
-    .submit-btn:hover {
-        color:black;
-        background-color:var(--primary)
+    input:focus-visible,
+    textarea:focus-visible {
+        outline:none;
+        background-color:var(--bg);
+        box-shadow:inset 0 0 0 2px var(--ink), 0 0 0 4px var(--yellow-soft);
     }
 
-    @media screen and (max-width:)
+    textarea {
+        min-height:150px;
+        resize:vertical;
+    }
+
+    .submit {
+        grid-column:1 / -1;
+        justify-self:start;
+        min-width:210px;
+        overflow:hidden;
+    }
+
+    .submit.sent {
+        background-color:#16A34A;
+    }
+
+    @media (max-width:520px) {
+        form {
+            grid-template-columns:minmax(0, 1fr);
+        }
+    }
 `
 
+export function ContactSection() {
+    const [sent, setSent] = useState(false)
 
-
-
-
-export function ContactSection(){
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setSent(true)
+        setTimeout(() => setSent(false), 4000)
+        const data = new FormData(e.target)
+        const subject = `Contact portfolio — ${data.get('fullname')}`
+        const body = `${data.get('message')}\n\n${data.get('fullname')} — ${data.get('email')}`
+        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    }
 
     return (
-        <Section id="contact">
-            <h2>Contact</h2>
-            <form method='post'>
-                <div>
-                    <label htmlFor='fullname'>Nom Complet</label>
-                    <input type='text' name='fullname' />
-                </div>
-                <div>
-                    <label htmlFor='email'>Adresse email</label>
-                    <input type='email' name='email' />
-                </div>
-                <div>
-                    <label htmlFor='message'>Décrivez votre projet</label>
-                    <textarea type='text' name='message' ></textarea>
-                </div>
-                <input type='submit' className="submit-btn"/>
-            </form>
-        </Section>
-    )
+        <section id='contact' className='section container'>
+            <div className='section-head'>
+                <span className='kicker'>Contact</span>
+                <h2>Un projet en tête&nbsp;? Parlons-en.</h2>
+                <p>Décrivez votre besoin en quelques lignes. Le message s’ouvre dans votre messagerie, prêt à envoyer.</p>
+            </div>
 
+            <Card
+                initial={{ opacity:0, y:40, rotate:-1 }}
+                whileInView={{ opacity:1, y:0, rotate:0 }}
+                viewport={{ once:true, margin:'-80px' }}
+                transition={{ duration:0.7, ease:[0.2, 0.7, 0.2, 1] }}
+            >
+                <div className='glow' aria-hidden='true'></div>
+                <div className='browser'>
+                    <div className='browser-bar'><span>nouveau message</span></div>
+                    <form onSubmit={handleSubmit}>
+                        <div className='field'>
+                            <label htmlFor='fullname'>Nom complet</label>
+                            <input type='text' id='fullname' name='fullname' autoComplete='name' placeholder='Marie Dupont' required/>
+                        </div>
+                        <div className='field'>
+                            <label htmlFor='email'>Adresse email</label>
+                            <input type='email' id='email' name='email' autoComplete='email' placeholder='marie@exemple.fr' required/>
+                        </div>
+                        <div className='field full'>
+                            <label htmlFor='message'>Votre projet</label>
+                            <textarea id='message' name='message' placeholder='Je cherche quelqu’un pour…' required></textarea>
+                        </div>
+                        <motion.button
+                            type='submit'
+                            className={sent ? 'button button-dark submit sent' : 'button button-dark submit'}
+                            whileTap={{ scale:0.96 }}
+                        >
+                            <AnimatePresence mode='wait' initial={false}>
+                                <motion.span
+                                    key={sent ? 'sent' : 'idle'}
+                                    initial={{ y:18, opacity:0 }}
+                                    animate={{ y:0, opacity:1 }}
+                                    exit={{ y:-18, opacity:0 }}
+                                    transition={{ duration:0.2 }}
+                                >
+                                    {sent ? '✓ Messagerie ouverte' : 'Écrire le message'}
+                                </motion.span>
+                            </AnimatePresence>
+                        </motion.button>
+                        <p className='sr-only' aria-live='polite'>{sent ? 'Votre messagerie s’est ouverte avec le message prêt à envoyer.' : ''}</p>
+                    </form>
+                </div>
+            </Card>
+        </section>
+    )
 }
 
 export default ContactSection

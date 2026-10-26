@@ -1,31 +1,31 @@
 import './styles.css'
-import { HeroSection } from './sections/HeroSection';
-import { Header } from './components/Header';
-import { Socials } from './components/Socials';
-import {AboutMe} from './sections/AboutMe.jsx'
-import TechStackSection from './sections/TechStackSection.jsx';
-import Footer from './components/Footer.jsx';
-import ProjectsSection from './sections/ProjectsSection.jsx';
-import ContactSection from './sections/ContactSection.jsx';
-import ProfessionalExperiences from './sections/ProfessionalExperiences.jsx';
-
-
-
+import { MotionConfig } from 'framer-motion'
+import { Header } from './components/Header'
+import Footer from './components/Footer'
+import HeroSection from './sections/HeroSection'
+import KpiSection from './sections/KpiSection'
+import AboutSection from './sections/AboutSection'
+import StackSection from './sections/StackSection'
+import ProjectsSection from './sections/ProjectsSection'
+import ProfessionalExperiences from './sections/ProfessionalExperiences'
+import ContactSection from './sections/ContactSection'
 
 function App() {
   return (
-    <>
-
-    <Header/>
-    <HeroSection/>
-    <AboutMe/>
-    <Socials/>
-    <TechStackSection/>
-    <ProjectsSection/>
-    <ContactSection/>
-    <Footer/>
-
-    </>
+    // honours the visitor's "reduce motion" system setting
+    <MotionConfig reducedMotion='user'>
+      <Header/>
+      <main>
+        <HeroSection/>
+        <KpiSection/>
+        <AboutSection/>
+        <StackSection/>
+        <ProjectsSection/>
+        <ProfessionalExperiences/>
+        <ContactSection/>
+      </main>
+      <Footer/>
+    </MotionConfig>
   )
 }
 

@@ -1,235 +1,384 @@
-import styled from "styled-components";
-import {useEffect, useState} from 'react'
+import styled from 'styled-components'
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import GithubIcon from '@assets/icons/github.svg'
 import LinkedInIcon from '@assets/icons/linkedin.svg'
+import { GITHUB_URL, LINKEDIN_URL } from '../data'
 
+const links = [
+    { id:'a-propos', label:'À propos' },
+    { id:'stack', label:'Stack' },
+    { id:'projets', label:'Projets' },
+    { id:'parcours', label:'Parcours' },
+]
 
-const StyledHeader = styled.header`
-
-    position:fixed;
+const Bar = styled.header`
+    position:sticky;
     top:0;
-    left:0;
-    color:white;
-    font-family:'Bebas Neue',sans-serif;
-    font-size:18px;
-    font-weight:500;
-    width:100%;
-    padding:10px 20px;
-    box-sizing:border-box;
-    animation:fadein2 4s ease-in 1;
+    z-index:20;
+    background-color:rgba(255,255,255,.82);
+    backdrop-filter:blur(12px);
+    transition:box-shadow .25s ease;
 
+    &.scrolled {
+        box-shadow:0 1px 0 var(--line);
+    }
 
-    > nav ul {
-        list-style:none;
+    &.open {
+        background-color:var(--bg);
+        box-shadow:none;
+    }
+
+    .inner {
         display:flex;
-        justify-content:flex-end;
+        align-items:center;
+        gap:24px;
+        height:84px;
+    }
+
+    .logo {
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin-right:auto;
+        font-size:18px;
+        font-weight:800;
+        letter-spacing:-0.02em;
+        text-decoration:none;
+    }
+
+    .logo span {
+        display:grid;
+        place-items:center;
+        width:36px;
+        height:36px;
+        border-radius:11px;
+        background-color:var(--yellow);
+        font-size:14px;
+        transform:rotate(-6deg);
+        box-shadow:var(--shadow-sm);
+    }
+
+    nav ul {
+        display:flex;
+        align-items:center;
+        gap:4px;
+        list-style:none;
+        margin:0;
         padding:0;
-        margin:15px 0;
     }
 
-    > nav ul li{
-        letter-spacing:.15rem;
-        margin:0 10px;
+    nav a {
+        position:relative;
+        display:block;
+        padding:8px 14px;
+        font-size:15px;
+        font-weight:600;
+        text-decoration:none;
+        color:var(--muted);
+        transition:color .2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+        color:var(--ink);
+    }
+
+    /* yellow underline that follows the section in view */
+    .underline {
+        position:absolute;
+        left:14px;
+        right:14px;
+        bottom:2px;
+        height:3px;
+        border-radius:3px;
+        background-color:var(--yellow);
+    }
+
+    .actions {
+        display:flex;
+        align-items:center;
+        gap:8px;
+    }
+
+    .contact {
+        padding:10px 18px;
+        font-size:15px;
+    }
+
+    .icon {
+        display:grid;
+        place-items:center;
+        width:40px;
+        height:40px;
+        border-radius:12px;
+        background-color:var(--bg);
+        box-shadow:var(--shadow-sm), inset 0 0 0 1px var(--line);
+    }
+
+    .icon img {
+        width:20px;
+        height:20px;
+    }
+
+    /* hamburger that turns into a cross */
+    .menu {
+        display:none;
+        place-items:center;
+        width:44px;
+        height:44px;
+        padding:0;
+        border:none;
+        border-radius:12px;
+        background-color:var(--ink);
+        color:#fff;
         cursor:pointer;
-        transition:.4s;
     }
 
-    > nav ul li:hover {
-        color:var(--primary);
+    .menu svg {
+        width:22px;
+        height:22px;
+        overflow:visible;
+    }
+
+    @media (max-width:980px) {
+        .actions .icon {
+            display:none;
+        }
+    }
+
+    @media (max-width:820px) {
+        nav,
+        .actions {
+            display:none;
+        }
+
+        .menu {
+            display:grid;
+        }
+
+        .inner {
+            height:68px;
+        }
     }
 `
 
-const MobileHeader = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  z-index: 10;
-  box-sizing: border-box;
-  animation:fadein2 4s ease-in 1;
-
-`;
-
-// Styled burger button
-const BurgerButton = styled.div`
- position:fixed;
-  top:24px;
-  right:24px;
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
-  span {
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary);
-    transition: all 0.3s ease;
-  }
-`;
-
-const CloseButton = styled.div`
-  position:fixed;
-  top:24px;
-  right:24px;  
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: 28px;
-    height: 3px;
-    background-color: black;
-    transform: rotate(45deg);
-  }
-
-  &::after {
-    transform: rotate(-45deg);
-  }
-`;
-
-// Styled sidebar
-const Sidebar = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  left:0;
-  bottom:0;
-  width: 100vw;
-  min-height:100dvh;
-  overflow:hidden;
-  background-color: var(--primary);
-  color: black;
-  box-sizing: border-box;
-  transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
-  transition: transform 0.3s ease;
-  font-family:'Bebas Neue',sans-serif;
-
-
-    nav ul {
-    list-style:none;
-    padding: 0;
-    margin:0;
-    width:100%;
-    min-height:100dvh;
+const Overlay = styled(motion.div)`
+    position:fixed;
+    inset:0;
+    z-index:19;
     display:flex;
     flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:16px;
-    
-        li {
-        list-style: none;
-        cursor: pointer;
-        transition: 0.4s;
-        font-size:28px;
-        }
+    padding:calc(68px + 24px) var(--gutter) 32px var(--gutter);
+    background-color:var(--bg);
+    background-image:radial-gradient(rgba(18,19,31,.10) 1px, transparent 1px);
+    background-size:22px 22px;
+    overflow-y:auto;
 
-        li:hover {
-        text-decoration:underline;
-        }
-    }  
-
-    div.socials {
-    position: fixed;
-    bottom: 32px;
-    left:50%;
-    transform:translate(-50%,0);
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    align-items:center;
-
-    a {
-        width:32px;
-
-
-        img {
-            width:100%
-            height:100%;
-
-        }
+    ul {
+        list-style:none;
+        margin:0;
+        padding:0;
     }
 
-  }
-`;
+    li a {
+        display:block;
+        padding:10px 0;
+        font-size:clamp(34px, 10vw, 44px);
+        font-weight:800;
+        letter-spacing:-0.03em;
+        line-height:1.15;
+        text-decoration:none;
+    }
 
-export function Header() {
+    li a.active {
+        text-decoration:underline;
+        text-decoration-color:var(--yellow);
+        text-decoration-thickness:6px;
+        text-underline-offset:8px;
+    }
 
-    const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    .bottom {
+        display:flex;
+        align-items:center;
+        gap:8px;
+        margin-top:auto;
+        padding-top:32px;
+    }
+
+    .bottom .button {
+        flex:1;
+    }
+
+    .icon {
+        display:grid;
+        place-items:center;
+        flex-shrink:0;
+        width:52px;
+        height:52px;
+        border-radius:14px;
+        background-color:var(--bg);
+        box-shadow:var(--shadow-sm), inset 0 0 0 1px var(--line);
+    }
+
+    .icon img {
+        width:22px;
+        height:22px;
+    }
+`
+
+const menuList = {
+    hidden:{},
+    show:{ transition:{ staggerChildren:0.06, delayChildren:0.08 } },
+}
+
+const menuItem = {
+    hidden:{ opacity:0, y:24 },
+    show:{ opacity:1, y:0, transition:{ duration:0.4, ease:[0.2, 0.7, 0.2, 1] } },
+}
+
+// the section whose top has passed the upper part of the screen
+function useActiveSection(ids) {
+    const [active, setActive] = useState(null)
 
     useEffect(() => {
-        const handleResize = () => {
+        let frame = 0
 
-            setViewportWidth(window.innerWidth)
+        const update = () => {
+            frame = 0
+            const line = window.innerHeight * 0.4
+            let current = null
+            ids.forEach((id) => {
+                const el = document.getElementById(id)
+                if (el && el.getBoundingClientRect().top <= line) current = id
+            })
+            setActive(current)
         }
-        window.addEventListener('resize',handleResize)
 
-    },[])
-
-    const handleNavClick = (e, sectionId) => {
-        e.preventDefault(); // Prevent default anchor click behavior
-        const section = document.querySelector(sectionId);
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
+        const onScroll = () => {
+            if (!frame) frame = requestAnimationFrame(update)
         }
-      };
 
-    return(
-    <>
-    {viewportWidth > 768 && (
+        update()
+        window.addEventListener('scroll', onScroll, { passive:true })
+        window.addEventListener('resize', onScroll)
+        return () => {
+            cancelAnimationFrame(frame)
+            window.removeEventListener('scroll', onScroll)
+            window.removeEventListener('resize', onScroll)
+        }
+    }, [ids])
 
-        <StyledHeader>
-            <nav>
-                <ul>
-                    <li><a href='#about-me' onClick={(e) => handleNavClick(e, '#about-me')}>about</a></li>
-                    <li><a href='#skills' onClick={(e) => handleNavClick(e, '#skills')}>skills</a></li>
-                    <li><a href='#projects' onClick={(e) => handleNavClick(e, '#projects')}>projects</a></li>
-                    <li><a href='#contact' onClick={(e) => handleNavClick(e, '#contact')}>contact</a></li>
-                </ul>
-            </nav>
-        </StyledHeader>    
-        
-    )}
+    return active
+}
 
-    {viewportWidth < 768 && (
-        <MobileHeader>
-          <BurgerButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-            <span />
-            <span />
-            <span />
-          </BurgerButton>
-          <Sidebar isOpen={isSidebarOpen}>
-          <CloseButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}/>
-            <div className='socials'>
-                <a href='https://github.com/endryLA' target='_blank'> <img src={GithubIcon} alt="Lien Github d'Endry"/></a>
-                <a href='https://www.linkedin.com/in/endry-lundy-167440193/' target='_blank'> <img src={LinkedInIcon} alt="Lien LinkedIn d'Endry"/> </a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href='#about-me' onClick={() => setIsSidebarOpen(!isSidebarOpen)}>about</a></li>
-                    <li><a href='#skills' onClick={() => setIsSidebarOpen(!isSidebarOpen)}>skills</a></li>
-                    <li><a href='#projects' onClick={() => setIsSidebarOpen(!isSidebarOpen)}>projects</a></li>
-                    <li><a href='#contact' onClick={() => setIsSidebarOpen(!isSidebarOpen)}>contact</a></li>
-                </ul>
-            </nav>
-          </Sidebar>
-             
-        </MobileHeader> 
-    )}
-    </>
+const sectionIds = [...links.map((l) => l.id), 'contact']
+
+export function Header() {
+    const active = useActiveSection(sectionIds)
+    const [open, setOpen] = useState(false)
+    const [scrolled, setScrolled] = useState(false)
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 8)
+        onScroll()
+        window.addEventListener('scroll', onScroll, { passive:true })
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
+
+    const close = () => setOpen(false)
+
+    // keep the page still behind the open menu, and let Escape close it
+    useEffect(() => {
+        if (!open) return
+        const onKey = (e) => e.key === 'Escape' && setOpen(false)
+        document.body.style.overflow = 'hidden'
+        window.addEventListener('keydown', onKey)
+        return () => {
+            document.body.style.overflow = ''
+            window.removeEventListener('keydown', onKey)
+        }
+    }, [open])
+
+    return (
+        <>
+            <Bar className={open ? 'open' : scrolled ? 'scrolled' : undefined}>
+                <div className='container inner'>
+                    <a href='#top' className='logo' onClick={close}>
+                        <span aria-hidden='true'>EL</span>
+                        Endry Lundy
+                    </a>
+
+                    <nav aria-label='Navigation principale'>
+                        <ul>
+                            {links.map((link) => (
+                                <li key={link.id}>
+                                    <a href={`#${link.id}`} className={active === link.id ? 'active' : undefined}>
+                                        {link.label}
+                                        {active === link.id && (
+                                            <motion.span className='underline' layoutId='nav-underline' transition={{ type:'spring', stiffness:400, damping:34 }}/>
+                                        )}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+
+                    <div className='actions'>
+                        <a className='button button-yellow contact' href='#contact'>Me contacter</a>
+                        <a className='icon' href={GITHUB_URL} target='_blank' rel='noopener noreferrer' aria-label='GitHub'>
+                            <img src={GithubIcon} alt=''/>
+                        </a>
+                        <a className='icon' href={LINKEDIN_URL} target='_blank' rel='noopener noreferrer' aria-label='LinkedIn'>
+                            <img src={LinkedInIcon} alt=''/>
+                        </a>
+                    </div>
+
+                    <button
+                        className='menu'
+                        aria-expanded={open}
+                        aria-controls='mobile-menu'
+                        aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+                        onClick={() => setOpen(!open)}
+                    >
+                        <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.4' strokeLinecap='round' aria-hidden='true'>
+                            <motion.line x1='4' x2='20' initial={false} animate={open ? { y1:12, y2:12, rotate:45 } : { y1:7, y2:7, rotate:0 }} style={{ originX:'50%', originY:'50%' }} transition={{ duration:0.25 }}/>
+                            <motion.line x1='4' x2='20' y1='12' y2='12' initial={false} animate={{ opacity:open ? 0 : 1 }} transition={{ duration:0.15 }}/>
+                            <motion.line x1='4' x2='20' initial={false} animate={open ? { y1:12, y2:12, rotate:-45 } : { y1:17, y2:17, rotate:0 }} style={{ originX:'50%', originY:'50%' }} transition={{ duration:0.25 }}/>
+                        </svg>
+                    </button>
+                </div>
+
+            </Bar>
+
+            <AnimatePresence>
+                {open && (
+                    <Overlay
+                        id='mobile-menu'
+                        initial={{ opacity:0 }}
+                        animate={{ opacity:1 }}
+                        exit={{ opacity:0 }}
+                        transition={{ duration:0.25 }}
+                    >
+                        <motion.ul variants={menuList} initial='hidden' animate='show'>
+                            {links.map((link) => (
+                                <motion.li key={link.id} variants={menuItem}>
+                                    <a href={`#${link.id}`} className={active === link.id ? 'active' : undefined} onClick={close}>{link.label}</a>
+                                </motion.li>
+                            ))}
+                        </motion.ul>
+                        <motion.div className='bottom' variants={menuItem} initial='hidden' animate='show'>
+                            <a className='button button-yellow' href='#contact' onClick={close}>Me contacter</a>
+                            <a className='icon' href={GITHUB_URL} target='_blank' rel='noopener noreferrer' aria-label='GitHub'>
+                                <img src={GithubIcon} alt=''/>
+                            </a>
+                            <a className='icon' href={LINKEDIN_URL} target='_blank' rel='noopener noreferrer' aria-label='LinkedIn'>
+                                <img src={LinkedInIcon} alt=''/>
+                            </a>
+                        </motion.div>
+                    </Overlay>
+                )}
+            </AnimatePresence>
+        </>
     )
 }

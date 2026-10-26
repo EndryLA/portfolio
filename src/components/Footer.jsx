@@ -1,57 +1,44 @@
-import styled from "styled-components";
-import GithubIcon from '@assets/icons/github.svg'
-import LinkedInIcon from '@assets/icons/linkedin.svg'
+import styled from 'styled-components'
+import { GITHUB_URL, LINKEDIN_URL } from '../data'
 
 const StyledFooter = styled.footer`
-    color:white;
-    font-size:12px;
-    font-family:'DM Sans',sans-serif;
-    margin-top:40px;
-
-    >p {
-        margin:0;
-        padding:10px;
-        text-align:center;
-
-        >a {
-            color:var(--primary)
-        }
-    }
-`
-
-const StyledComponent = styled.div`
-    display:flex;
-    gap:20px;
-    justify-content:center;
-    display:none;
-
-
-    >a img {
-        width:32px;
-        height:32px;
-        filter: invert(87%) sepia(0%) saturate(0%) hue-rotate(148deg) brightness(84%) contrast(84%);    
-        cursor:pointer;
-    }
-
-    > a img:hover {
-        filter: invert(79%) sepia(95%) saturate(619%) hue-rotate(340deg) brightness(97%) contrast(104%);
-        
-    }
-
-    @media (max-width:768px) {
+    .inner {
         display:flex;
+        flex-wrap:wrap;
+        justify-content:space-between;
+        gap:12px;
+        padding-top:32px;
+        padding-bottom:40px;
+        border-top:1px solid var(--line);
+        font-size:15px;
+        color:var(--muted);
     }
 
+    .links {
+        display:flex;
+        gap:20px;
+    }
+
+    a {
+        font-weight:600;
+        text-decoration:none;
+    }
+
+    a:hover {
+        color:var(--ink);
+    }
 `
 
 export default function Footer() {
-    return(
-        <StyledFooter>
-            <StyledComponent>
-                <a href='https://github.com/endryLA' target='_blank'> <img src={GithubIcon} alt="Lien Github d'Endry"/> </a>
-                <a href='https://www.linkedin.com/in/endry-lundy-167440193/' target='_blank'> <img src={LinkedInIcon} alt="Lien LinkedIn d'Endry"/> </a>
-            </StyledComponent> 
-            <p>© Endry Lundy Tous droits réservés.</p>
+    return (
+        <StyledFooter className='container'>
+            <div className='inner'>
+                <p>© {new Date().getFullYear()} Endry Lundy</p>
+                <div className='links'>
+                    <a href={GITHUB_URL} target='_blank' rel='noopener noreferrer'>GitHub</a>
+                    <a href={LINKEDIN_URL} target='_blank' rel='noopener noreferrer'>LinkedIn</a>
+                </div>
+            </div>
         </StyledFooter>
     )
 }
