@@ -50,7 +50,7 @@ function Ribbon({ ribbon, index }) {
             <motion.path
                 d={ribbon.d}
                 fill='none'
-                stroke='rgba(18,19,31,.12)'
+                stroke='var(--ribbon-shadow)'
                 strokeWidth='76'
                 strokeLinecap='round'
                 transform='translate(0 14)'

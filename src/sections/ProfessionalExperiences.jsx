@@ -10,6 +10,8 @@ const Block = styled(motion.div)`
     padding:clamp(32px, 6vw, 72px);
     border-radius:32px;
     background-color:var(--navy);
+    /* a hairline edge in dark mode, where the block sits on a dark page */
+    box-shadow:inset 0 0 0 1px var(--navy-edge);
     color:#fff;
     overflow:hidden;
     position:relative;

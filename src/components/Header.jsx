@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import GithubIcon from '@assets/icons/github.svg'
 import LinkedInIcon from '@assets/icons/linkedin.svg'
 import { GITHUB_URL, LINKEDIN_URL } from '../data'
+import { logoClass, useTheme } from '../theme'
 
 const links = [
     { id:'a-propos', label:'À propos' },
@@ -16,7 +17,7 @@ const Bar = styled.header`
     position:sticky;
     top:0;
     z-index:20;
-    background-color:rgba(255,255,255,.82);
+    background-color:var(--glass);
     backdrop-filter:blur(12px);
     transition:box-shadow .25s ease;
 
@@ -54,6 +55,7 @@ const Bar = styled.header`
         height:36px;
         border-radius:11px;
         background-color:var(--yellow);
+        color:var(--on-yellow);
         font-size:14px;
         transform:rotate(-6deg);
         box-shadow:var(--shadow-sm);
@@ -121,6 +123,27 @@ const Bar = styled.header`
         height:20px;
     }
 
+    /* sun / moon switch, kept visible on phones next to the menu button */
+    .theme {
+        display:grid;
+        place-items:center;
+        width:40px;
+        height:40px;
+        padding:0;
+        border:none;
+        border-radius:12px;
+        background-color:var(--bg);
+        box-shadow:var(--shadow-sm), inset 0 0 0 1px var(--line);
+        color:var(--ink);
+        cursor:pointer;
+        overflow:hidden;
+    }
+
+    .theme svg {
+        width:20px;
+        height:20px;
+    }
+
     /* hamburger that turns into a cross */
     .menu {
         display:none;
@@ -131,7 +154,7 @@ const Bar = styled.header`
         border:none;
         border-radius:12px;
         background-color:var(--ink);
-        color:#fff;
+        color:var(--bg);
         cursor:pointer;
     }
 
@@ -157,6 +180,12 @@ const Bar = styled.header`
             display:grid;
         }
 
+        .theme {
+            width:44px;
+            height:44px;
+            margin-left:auto;
+        }
+
         .inner {
             height:68px;
         }
@@ -171,7 +200,7 @@ const Overlay = styled(motion.div)`
     flex-direction:column;
     padding:calc(68px + 24px) var(--gutter) 32px var(--gutter);
     background-color:var(--bg);
-    background-image:radial-gradient(rgba(18,19,31,.10) 1px, transparent 1px);
+    background-image:radial-gradient(var(--dot) 1px, transparent 1px);
     background-size:22px 22px;
     overflow-y:auto;
 
@@ -287,6 +316,14 @@ export function Header() {
     }, [])
 
     const close = () => setOpen(false)
+    const [theme, toggleTheme] = useTheme()
+    const dark = theme === 'dark'
+
+    // the new theme spreads from the button's centre
+    const switchTheme = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect()
+        toggleTheme({ x:rect.left + rect.width / 2, y:rect.top + rect.height / 2 })
+    }
 
     // keep the page still behind the open menu, and let Escape close it
     useEffect(() => {
@@ -324,13 +361,42 @@ export function Header() {
                         </ul>
                     </nav>
 
+                    <button
+                        className='theme'
+                        onClick={switchTheme}
+                        aria-label={dark ? 'Passer en mode clair' : 'Passer en mode sombre'}
+                        title={dark ? 'Mode clair' : 'Mode sombre'}
+                    >
+                        <AnimatePresence mode='wait' initial={false}>
+                            <motion.svg
+                                key={theme}
+                                viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'
+                                aria-hidden='true'
+                                initial={{ y:20, rotate:-90, opacity:0 }}
+                                animate={{ y:0, rotate:0, opacity:1 }}
+                                exit={{ y:-20, rotate:90, opacity:0 }}
+                                transition={{ duration:0.25, ease:[0.2, 0.7, 0.2, 1] }}
+                            >
+                                {dark ? (
+                                    // sun: shown in dark mode, switches to light
+                                    <>
+                                        <circle cx='12' cy='12' r='4'/>
+                                        <path d='M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/>
+                                    </>
+                                ) : (
+                                    <path d='M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z'/>
+                                )}
+                            </motion.svg>
+                        </AnimatePresence>
+                    </button>
+
                     <div className='actions'>
                         <a className='button button-yellow contact' href='#contact'>Me contacter</a>
                         <a className='icon' href={GITHUB_URL} target='_blank' rel='noopener noreferrer' aria-label='GitHub'>
-                            <img src={GithubIcon} alt=''/>
+                            <img src={GithubIcon} alt='' className={logoClass(GithubIcon)}/>
                         </a>
                         <a className='icon' href={LINKEDIN_URL} target='_blank' rel='noopener noreferrer' aria-label='LinkedIn'>
-                            <img src={LinkedInIcon} alt=''/>
+                            <img src={LinkedInIcon} alt='' className={logoClass(LinkedInIcon)}/>
                         </a>
                     </div>
 
@@ -370,10 +436,10 @@ export function Header() {
                         <motion.div className='bottom' variants={menuItem} initial='hidden' animate='show'>
                             <a className='button button-yellow' href='#contact' onClick={close}>Me contacter</a>
                             <a className='icon' href={GITHUB_URL} target='_blank' rel='noopener noreferrer' aria-label='GitHub'>
-                                <img src={GithubIcon} alt=''/>
+                                <img src={GithubIcon} alt='' className={logoClass(GithubIcon)}/>
                             </a>
                             <a className='icon' href={LINKEDIN_URL} target='_blank' rel='noopener noreferrer' aria-label='LinkedIn'>
-                                <img src={LinkedInIcon} alt=''/>
+                                <img src={LinkedInIcon} alt='' className={logoClass(LinkedInIcon)}/>
                             </a>
                         </motion.div>
                     </Overlay>

@@ -7,6 +7,14 @@
     --yellow:#FCD612;
     --yellow-soft:#FFF5BF;
     --navy:#12131F;
+    /* text on yellow stays dark in both themes */
+    --on-yellow:#12131F;
+    --navy-edge:transparent;
+    --glass:rgba(255,255,255,.82);
+    --glass-strong:rgba(255,255,255,.92);
+    --dot:rgba(18,19,31,.13);
+    --ribbon-shadow:rgba(18,19,31,.12);
+    --glow-opacity:.6;
 
     --font:'Plus Jakarta Sans', system-ui, sans-serif;
 
@@ -16,6 +24,34 @@
 
     --gutter:clamp(16px, 4vw, 40px);
     --max:1180px;
+}
+
+/* set on <html> before first paint by the script in index.html */
+:root[data-theme='dark'] {
+    color-scheme:dark;
+
+    --bg:#0E0F17;
+    --bg-soft:#171823;
+    --ink:#F1F2F7;
+    --muted:#A2A5B8;
+    --line:#272938;
+    --yellow-soft:rgba(252,214,18,.16);
+    --navy:#181A27;
+    --navy-edge:#272938;
+    --glass:rgba(14,15,23,.78);
+    --glass-strong:rgba(14,15,23,.9);
+    --dot:rgba(255,255,255,.07);
+    --ribbon-shadow:rgba(0,0,0,.4);
+    --glow-opacity:.14;
+
+    --shadow-sm:0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.2);
+    --shadow-md:0 2px 4px rgba(0,0,0,.2), 0 12px 32px rgba(0,0,0,.35);
+    --shadow-lg:0 4px 8px rgba(0,0,0,.25), 0 24px 64px rgba(0,0,0,.45);
+}
+
+/* black logos and drawn icons turn light; hue-rotate keeps their yellow and red accents */
+:root[data-theme='dark'] .invert-dark {
+    filter:invert(1) hue-rotate(180deg);
 }
 
 *, *::before, *::after {
@@ -39,7 +75,7 @@ body {
 
 ::selection {
     background-color:var(--yellow);
-    color:var(--ink);
+    color:var(--on-yellow);
 }
 
 img {
@@ -85,7 +121,7 @@ main {
 
 /* subtle dot grid used behind hero areas */
 .dots {
-    background-image:radial-gradient(rgba(18,19,31,.13) 1px, transparent 1px);
+    background-image:radial-gradient(var(--dot) 1px, transparent 1px);
     background-size:22px 22px;
 }
 
@@ -109,7 +145,7 @@ main {
     padding:6px 14px;
     border-radius:999px;
     background-color:var(--yellow);
-    color:var(--ink);
+    color:var(--on-yellow);
     font-size:14px;
     font-weight:700;
 }
@@ -155,7 +191,7 @@ main {
 
 .button-dark {
     background-color:var(--ink);
-    color:#fff;
+    color:var(--bg);
     box-shadow:var(--shadow-md);
 }
 
@@ -165,6 +201,7 @@ main {
 
 .button-yellow {
     background-color:var(--yellow);
+    color:var(--on-yellow);
     box-shadow:var(--shadow-sm);
 }
 
@@ -218,4 +255,11 @@ main {
         animation:none !important;
         transition:none !important;
     }
+}
+
+/* theme switch: the new theme grows as a circle from the toggle (see theme.js) */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation:none;
+    mix-blend-mode:normal;
 }

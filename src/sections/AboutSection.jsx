@@ -4,6 +4,7 @@ import profile from '@assets/images/profile.png'
 import GithubIcon from '@assets/icons/github.svg'
 import LinkedInIcon from '@assets/icons/linkedin.svg'
 import { GITHUB_URL, LINKEDIN_URL } from '../data'
+import { logoClass } from '../theme'
 
 const ease = [0.2, 0.7, 0.2, 1]
 
@@ -118,10 +119,10 @@ export default function AboutSection() {
                     </p>
                     <div className='links'>
                         <a className='button' href={GITHUB_URL} target='_blank' rel='noopener noreferrer'>
-                            <img src={GithubIcon} alt=''/> GitHub
+                            <img src={GithubIcon} alt='' className={logoClass(GithubIcon)}/> GitHub
                         </a>
                         <a className='button' href={LINKEDIN_URL} target='_blank' rel='noopener noreferrer'>
-                            <img src={LinkedInIcon} alt=''/> LinkedIn
+                            <img src={LinkedInIcon} alt='' className={logoClass(LinkedInIcon)}/> LinkedIn
                         </a>
                     </div>
                 </motion.div>

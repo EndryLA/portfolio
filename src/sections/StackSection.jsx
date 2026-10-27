@@ -5,6 +5,7 @@ import mysqlLogo from '@assets/stack-logos/mysql.svg'
 import expressLogo from '@assets/stack-logos/express.svg'
 import { stack } from '../data'
 import { SkillsModal } from '../components/SkillsModal'
+import { logoClass } from '../theme'
 
 const iconOf = (name) => ({ MySQL:mysqlLogo, Express:expressLogo }[name] ?? stack.find((tech) => tech.name === name)?.icon)
 
@@ -57,6 +58,7 @@ const Main = styled.div`
 
     .card.featured {
         background-color:var(--yellow);
+        color:var(--on-yellow);
         box-shadow:var(--shadow-md);
     }
 
@@ -68,14 +70,14 @@ const Main = styled.div`
         padding:0;
     }
 
-    /* official logos sit centred on a white tile */
+    /* official logos sit centred on a white tile, in both themes */
     .logos li {
         display:grid;
         place-items:center;
         width:64px;
         height:64px;
         border-radius:18px;
-        background-color:var(--bg);
+        background-color:#fff;
         box-shadow:var(--shadow-md), inset 0 0 0 1px var(--line);
     }
 
@@ -124,7 +126,7 @@ const Main = styled.div`
         height:8px;
         margin-top:8px;
         border-radius:50%;
-        background-color:var(--ink);
+        background-color:currentColor;
     }
 
     /* framework modules and tools, as tags */
@@ -309,7 +311,7 @@ export default function StackSection() {
                             {/* two identical halves so the loop is seamless */}
                             {Array.from({ length:SETS * 2 }, () => row).flat().map((name, i) => (
                                 <li key={i}>
-                                    <img src={iconOf(name)} alt=''/>
+                                    <img src={iconOf(name)} alt='' className={logoClass(iconOf(name))}/>
                                     {name}
                                 </li>
                             ))}

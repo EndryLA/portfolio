@@ -25,6 +25,7 @@ const List = styled(motion.ul)`
 
     li:first-child {
         background-color:var(--yellow);
+        color:var(--on-yellow);
         box-shadow:var(--shadow-md);
     }
 

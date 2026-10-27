@@ -15,7 +15,7 @@ const Card = styled(motion.div)`
         border-radius:48px;
         background:linear-gradient(120deg, #FFE97A, #FFD1A6);
         transform:rotate(2deg);
-        opacity:.6;
+        opacity:var(--glow-opacity);
     }
 
     .browser {

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import GithubIcon from '@assets/icons/github.svg'
 import { projects } from '../data'
+import { logoClass } from '../theme'
 
 const filters = ['Tous', 'Full-Stack', 'Frontend', 'Backend']
 
@@ -273,7 +274,7 @@ function ProjectCard({ project, index }) {
                 </ul>
                 {href && (
                     <span className='cta'>
-                        {isCode && <img src={GithubIcon} alt=''/>}
+                        {isCode && <img src={GithubIcon} alt='' className={logoClass(GithubIcon)}/>}
                         {cta ?? 'Voir le site'}
                     </span>
                 )}

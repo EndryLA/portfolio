@@ -43,6 +43,7 @@ import solid from '@assets/skill-icons/solid.svg'
 import dry from '@assets/skill-icons/dry.svg'
 import kiss from '@assets/skill-icons/kiss.svg'
 import yagni from '@assets/skill-icons/yagni.svg'
+import { logoClass } from '../theme'
 
 // full skill list, from the CV's "Compétences" section plus tools shown elsewhere on the site
 const groups = [
@@ -126,7 +127,7 @@ const Dialog = styled(motion.div)`
         gap:16px;
         padding:clamp(18px, 3vw, 24px) clamp(20px, 4vw, 40px);
         border-bottom:1px solid var(--line);
-        background-color:rgba(255,255,255,.92);
+        background-color:var(--glass-strong);
         backdrop-filter:blur(10px);
     }
 
@@ -146,7 +147,7 @@ const Dialog = styled(motion.div)`
         border:none;
         border-radius:14px;
         background-color:var(--ink);
-        color:#fff;
+        color:var(--bg);
         cursor:pointer;
         transition:transform .2s ease;
     }
@@ -203,6 +204,7 @@ const Dialog = styled(motion.div)`
         padding:0 8px;
         border-radius:999px;
         background-color:var(--yellow);
+        color:var(--on-yellow);
         font-size:13px;
         font-weight:800;
     }
@@ -315,7 +317,7 @@ export function SkillsModal({ open, onClose }) {
                                     <ul>
                                         {group.items.map(([name, logo]) => (
                                             <motion.li key={name} variants={chipIn}>
-                                                {logo && <img src={logo} alt=''/>}
+                                                {logo && <img src={logo} alt='' className={logoClass(logo)}/>}
                                                 {name}
                                             </motion.li>
                                         ))}

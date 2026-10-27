@@ -28,7 +28,7 @@ const Hero = styled.section`
         position:absolute;
         inset:0;
         z-index:-1;
-        background-image:radial-gradient(rgba(18,19,31,.14) 1px, transparent 1px);
+        background-image:radial-gradient(var(--dot) 1px, transparent 1px);
         background-size:22px 22px;
         mask-image:radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
     }
