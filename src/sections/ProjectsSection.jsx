@@ -59,9 +59,13 @@ const Tabs = styled.div`
         transition:color .2s ease;
     }
 
-    button:hover,
-    button[aria-pressed='true'] {
+    button:hover {
         color:var(--ink);
+    }
+
+    button[aria-pressed='true'],
+    button[aria-pressed='true'] .count {
+        color:var(--on-yellow);
     }
 
     button span {
@@ -75,12 +79,12 @@ const Tabs = styled.div`
         color:var(--muted);
     }
 
-    /* white pill that slides to the active tab */
+    /* yellow pill that slides to the active tab */
     .pill {
         position:absolute;
         inset:0;
         border-radius:12px;
-        background-color:var(--bg);
+        background-color:var(--yellow);
         box-shadow:var(--shadow-sm);
     }
 `

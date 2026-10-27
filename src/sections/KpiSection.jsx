@@ -18,7 +18,7 @@ const List = styled(motion.ul)`
         gap:4px;
         padding:clamp(24px, 3.4vw, 36px) 20px;
         border-radius:28px;
-        background-color:var(--bg);
+        background-color:var(--surface);
         box-shadow:var(--shadow-md), inset 0 0 0 1px var(--line);
         text-align:center;
     }

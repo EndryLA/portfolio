@@ -114,7 +114,7 @@ const Bar = styled.header`
         width:40px;
         height:40px;
         border-radius:12px;
-        background-color:var(--bg);
+        background-color:var(--surface);
         box-shadow:var(--shadow-sm), inset 0 0 0 1px var(--line);
     }
 
@@ -132,7 +132,7 @@ const Bar = styled.header`
         padding:0;
         border:none;
         border-radius:12px;
-        background-color:var(--bg);
+        background-color:var(--surface);
         box-shadow:var(--shadow-sm), inset 0 0 0 1px var(--line);
         color:var(--ink);
         cursor:pointer;
@@ -246,7 +246,7 @@ const Overlay = styled(motion.div)`
         width:52px;
         height:52px;
         border-radius:14px;
-        background-color:var(--bg);
+        background-color:var(--surface);
         box-shadow:var(--shadow-sm), inset 0 0 0 1px var(--line);
     }
 

@@ -51,7 +51,7 @@ const Card = styled(motion.div)`
         font-family:var(--font);
         font-size:16px;
         color:var(--ink);
-        background-color:var(--bg-soft);
+        background-color:var(--field);
         border:none;
         border-radius:12px;
         box-shadow:inset 0 0 0 1px var(--line);
@@ -66,7 +66,7 @@ const Card = styled(motion.div)`
     input:focus-visible,
     textarea:focus-visible {
         outline:none;
-        background-color:var(--bg);
+        background-color:var(--surface);
         box-shadow:inset 0 0 0 2px var(--ink), 0 0 0 4px var(--yellow-soft);
     }
 

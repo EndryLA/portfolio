@@ -52,7 +52,7 @@ const Main = styled.div`
         flex-direction:column;
         padding:clamp(24px, 3.4vw, 40px);
         border-radius:32px;
-        background-color:var(--bg);
+        background-color:var(--surface);
         box-shadow:var(--shadow-md), inset 0 0 0 1px var(--line);
     }
 
@@ -142,7 +142,7 @@ const Main = styled.div`
     .tags li {
         padding:6px 12px;
         border-radius:10px;
-        background-color:var(--bg-soft);
+        background-color:var(--field);
         box-shadow:inset 0 0 0 1px var(--line);
         font-size:14px;
         font-weight:700;
@@ -238,7 +238,7 @@ const Also = styled.div`
         gap:12px;
         padding:10px 20px 10px 14px;
         border-radius:16px;
-        background-color:var(--bg);
+        background-color:var(--surface);
         box-shadow:var(--shadow-sm), inset 0 0 0 1px var(--line);
         font-size:15px;
         font-weight:700;

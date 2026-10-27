@@ -224,7 +224,7 @@ const Dialog = styled(motion.div)`
         gap:8px;
         padding:7px 12px;
         border-radius:12px;
-        background-color:var(--bg);
+        background-color:var(--surface);
         box-shadow:var(--shadow-sm), inset 0 0 0 1px var(--line);
         font-size:14px;
         font-weight:700;

@@ -39,7 +39,7 @@ const Hero = styled.section`
         gap:8px;
         padding:8px 12px 8px 16px;
         border-radius:999px;
-        background-color:var(--bg);
+        background-color:var(--surface);
         box-shadow:var(--shadow-sm), inset 0 0 0 1px var(--line);
         font-size:15px;
         font-weight:600;
