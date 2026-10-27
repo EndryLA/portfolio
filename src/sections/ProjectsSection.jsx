@@ -79,6 +79,24 @@ const Tabs = styled.div`
         color:var(--muted);
     }
 
+    /* phones: one full-width row, tighter tabs and no counts, so all four fit */
+    @media (max-width:560px) {
+        div {
+            width:100%;
+        }
+
+        button {
+            flex:1 1 auto;
+            padding:9px 6px;
+            /* 13px on the narrowest phones (320px) */
+            font-size:clamp(13px, 3.8vw, 14px);
+        }
+
+        .count {
+            display:none;
+        }
+    }
+
     /* yellow pill that slides to the active tab */
     .pill {
         position:absolute;
